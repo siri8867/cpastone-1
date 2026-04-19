@@ -25,7 +25,7 @@ pipeline {
        //Job3: Prod
         stage('Deploy to Prod') {
             when {
-                branch = 'master'
+                branch 'master'
             }
             steps {
                 echo "Deploying to Production"
