@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo "Running Test Container"
                 sh 'docker rm -f test-container || true'
-                sh 'docker run -d --name test-container -p 8081:80 $IMAGE_NAME'
+                sh 'docker run -d --name test-container -p 8083:80 $IMAGE_NAME'
             }
         }
 
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo "Deploying to Production"
                 sh 'docker rm -f prod-container || true'
-                sh 'docker run -d --name prod-container -p 8082:80 $IMAGE_NAME'
+                sh 'docker run -d --name prod-container -p 8084:80 $IMAGE_NAME'
             }
         }
     }
