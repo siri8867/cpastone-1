@@ -22,5 +22,16 @@ pipeline {
                 sh 'docker run -d --name test-container -p 8083:80 $IMAGE_NAME'
             }
  	}
+	//Job3: Prod
+        stage('Deploy to Prod') {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo "Deploying to Production"
+                sh 'docker rm -f prod-container || true'
+                sh 'docker run -d --name prod-container -p 8082:80 $IMAGE_NAME'
+            }
+        }
     }
 }
