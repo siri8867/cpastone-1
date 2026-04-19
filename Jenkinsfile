@@ -23,18 +23,5 @@ pipeline {
             }
         }
 
-        //Job3: Prod
-        stage('Deploy to Prod') {
-            when {
-                expression {
-  			    return env.BRANCH_NAME == 'master' || env.GIT_BRANCH == 'origin/master'
-   		 }
-            }
-            steps {
-                echo "Deploying to Production"
-                sh 'docker rm -f prod-container || true'
-                sh 'docker run -d --name prod-container -p 8084:80 $IMAGE_NAME'
-            }
-        }
     }
 }
