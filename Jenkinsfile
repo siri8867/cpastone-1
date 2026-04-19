@@ -26,9 +26,10 @@ pipeline {
         //Job3: Prod
         stage('Deploy to Prod') {
             when {
-                expression {
-  			    return env.BRANCH_NAME == 'master' || env.GIT_BRANCH == 'origin/master'
-   		 }
+                #expression {
+  			   # return env.BRANCH_NAME == 'master' || env.GIT_BRANCH == 'origin/master'
+   		 }#
+		branch == 'master || 'origin.master'
             }
             steps {
                 echo "Deploying to Production"
