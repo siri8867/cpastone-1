@@ -21,7 +21,12 @@ pipeline {
                 sh 'docker rm -f test-container || true'
                 sh 'docker run -d --name test-container -p 8083:80 $IMAGE_NAME'
             }
+<<<<<<< Updated upstream
  	}
         
+=======
+        }
+
+>>>>>>> Stashed changes
     }
 }
